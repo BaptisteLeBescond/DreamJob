@@ -1,0 +1,34 @@
+Partie I
+
+0) Sur https://openclassrooms.com/courses/apprendre-asp-net-mvc/, lire le chapitre suivant sans appliquer les consignes:
+- economiser-son-code-avec-les-helpers-et-les-vues-partielles
+
+1) Clonez ce repertoire sur votre ordinateur (vous pouvez le faire à partir de Visual Studio).
+
+2) Creez une base de donnes locale utilisateurs avec les proprietes suivantes:
+
+CREATE TABLE `mysqltest`.`utilisateurs` (
+  `Prenom` VARCHAR(300) NOT NULL,
+  `MotDePasse` VARCHAR(300) NOT NULL,
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  UNIQUE INDEX `Prenom_UNIQUE` (`Prenom` ASC),
+  PRIMARY KEY (`Id`));
+
+et ajouter les colonnes up_votes et down_votes a la table articles:
+
+ALTER TABLE mysqltest.articles ADD down_votes INT DEFAULT 0;
+ALTER TABLE mysqltest.articles ADD up_votes INT DEFAULT 0;
+
+3) Tentez de creer un nouvel utilisateur sans mot de passe. Un message d'erreur en anglais s'affiche. 
+Changez ce message d'erreur pour qu'il s'affiche en français.
+
+4) Creez un nouvel utilisateur. Tentez de voter plusieurs fois pour une meme offre d'emploi. Ca marche alors que ça ne devrait pas. 
+Corrigez ce bug.
+
+5) Faites en sorte qu'on ne puisse pas à la fois voter pour et contre une offre d'emploi.
+
+BONUS : Pour le moment, l'action de voter a pour effet de réactualiser toute la page (= demander la page au serveur). 
+Faites en sorte de ne pas rappeler la page lors du vote, tout en réactualisant l'affichage et le décompte cote serveur.
+
+Partie II : Brainstorming
+Definir un système de recommendation adapté au cas de ce site web.
